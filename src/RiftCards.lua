@@ -1699,7 +1699,7 @@ SMODS.Seal{
     end,
     inject = function(self)
         if RIFTRAFT.only_jokers then return end
-        SMODS.Spectral.inject(self)
+        SMODS.Seal.inject(self)
     end,
 }
 RIFTRAFT.check_destroy_for_seal = function(card)
