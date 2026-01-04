@@ -1082,7 +1082,6 @@ RIFTRAFT.RiftCard{
         return {
             vars = {
                 card.ability.extra.amount,
-                card.ability.extra.dollars,
             }
         }
     end,
@@ -1093,13 +1092,13 @@ RIFTRAFT.RiftCard{
     cost = 1,
     in_pool = function(self, args)
         if G.riftraft_void and RIFTRAFT.in_void_pack() then
-            return ((#G.riftraft_void.cards + #G.riftraft_rifthand.cards) > 0)
+            return ((#G.riftraft_void.cards + #G.riftraft_rifthand.cards) >= self.config.extra.amount)
         end
         return true
     end,
     can_use = function(self, card)
         if not RIFTRAFT.in_void_pack() then return false end
-        if #G.riftraft_rifthand.cards == 0 then return false end
+        if #G.riftraft_rifthand.cards < card.ability.extra.amount then return false end
         for k,v in ipairs(G.riftraft_rifthand.cards) do
             if not v.ability or not v.ability.eternal then
                 return true

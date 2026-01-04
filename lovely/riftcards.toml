@@ -47,8 +47,8 @@ pattern = "(?<indent>[\t ]*)\\{\n[\t ]*label = localize\\('b_full_deck'\\),(\n[\
 position = "after"
 line_prepend = "$indent"
 payload = '''
-{
+(not RIFTRAFT.only_jokers) and {
     label = localize('b_riftraft_void'),
     tab_definition_function = RIFTRAFT.view_void_deck
-},
+} or nil,
 '''

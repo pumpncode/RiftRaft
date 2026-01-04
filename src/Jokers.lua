@@ -262,7 +262,7 @@ RIFTRAFT.VoidJoker{
 -- Rare --
 ----------
 function RIFTRAFT.get_extra_card_limit(card)
-    return (card.edition and card.edition.card_limit or 0)
+    return (card.ability.card_limit or 0)
         + (card.config.center.key == 'j_riftraft_joke' and card.ability.extra.amount or 0)
 end
 RIFTRAFT.VoidJoker{
